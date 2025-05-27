@@ -1,0 +1,114 @@
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #f3e9dc;
+      color: #4b3621;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background: url('https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1470&q=80') no-repeat center/cover;
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      text-align: center;
+      padding: 0 1rem;
+      animation: fadeInDown 2s ease forwards;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      background-color: rgba(75, 54, 33, 0.75);
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(75, 54, 33, 0.7);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    main h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #6f4e37;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1s ease-out 0.5s forwards;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    main p:nth-of-type(1) {
+      animation-delay: 1s;
+    }
+
+    main p:nth-of-type(2) {
+      animation-delay: 1.5s;
+    }
+
+    main p:nth-of-type(3) {
+      animation-delay: 2s;
+    }
+
+    footer {
+      background-color: #6f4e37;
+      color: #fff;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+        padding: 0.7rem 1.2rem;
+      }
+
+      main h2 {
+        font-size: 2rem;
+      }
+
+      main p {
+        font-size: 1rem;
+      }
+    }

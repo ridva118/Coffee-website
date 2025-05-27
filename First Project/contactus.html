@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Us - Coffee Since 1973</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #fff8f0;
+    color: #4b3b2b;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 900px;
+    margin: 60px auto 100px;
+    padding: 0 20px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    color: #6f4e37;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeSlideIn 1s ease forwards;
+  }
+
+  header p.subtitle {
+    font-size: 1.3rem;
+    color: #a17c55;
+    margin-top: 10px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 1s ease 0.5s forwards;
+  }
+
+  /* Floating coffee bean */
+  .bean {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background: #3e2c1c;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: inset 10px 0 15px rgba(255, 255, 255, 0.3);
+    top: -30px;
+    right: 10%;
+    opacity: 0.7;
+    animation: floatBean 5s ease-in-out infinite;
+  }
+  .bean::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 18px;
+    width: 5px;
+    height: 35px;
+    background: #5c452a;
+    border-radius: 2px;
+    box-shadow: 2px 0 2px #8b6b3a inset;
+  }
+
+  @keyframes floatBean {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-20px) rotate(15deg) scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  /* Contact info and form container */
+  .content {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  /* Contact info */
+  .contact-info {
+    flex: 1 1 300px;
+    background: #fff2df;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(111, 78, 55, 0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 1s ease 1s forwards;
+  }
+
+  .contact-info h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #6f4e37;
+    font-size: 2rem;
+  }
+
+  .contact-info p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: #5b4732;
+  }
+
+  .highlight {
+    background: #6f4e37;
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-align: center;
+    margin-top: 30px;
+    box-shadow: 0 8px 20px rgba(111, 78, 55, 0.3);
+  }
+
+  /* Contact form */
+  form {
+    flex: 1 1 350px;
+    background: #fff2df;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(111, 78, 55, 0.15);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 1s ease 1.5s forwards;
+  }
+
+  form h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #6f4e37;
+    font-size: 2rem;
+  }
+
+  form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #5b4732;
+  }
+
+  form input, form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border: 1.5px solid #c9b195;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: border-color 0.3s ease;
+  }
+
+  form input:focus, form textarea:focus {
+    border-color: #6f4e37;
+    outline: none;
+  }
+
+  form textarea {
+    resize: vertical;
+    min-height: 100px;
+  }
+
+  form button {
+    background: #6f4e37;
+    color: white;
+    font-weight: 700;
+    padding: 14px 0;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.15rem;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(111, 78, 55, 0.4);
+    transition: background 0.3s ease;
+  }
+
+  form button:hover {
+    background: #563b27;
+  }
+
+  /* Footer email */
+  footer {
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #6f4e37;
+    padding: 30px 20px;
+    border-top: 1px solid #c9b195;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #fff8f0cc;
+    backdrop-filter: saturate(180%) blur(15px);
+    animation: fadeSlideIn 1s ease 2.5s forwards;
+    opacity: 0;
+  }
+
+  footer a {
+    color: #6f4e37;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+  }
+
+  footer a:hover {
+    border-color: #6f4e37;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .content {
+      flex-direction: column;
+    }
+
+    footer {
+      position: static;
+      margin-top: 40px;
+      padding-bottom: 40px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Contact Us</h1>
+    <p class="subtitle">Since 1973, brewing conversations over coffee</p>
+    <div class="bean"></div>
+  </header>
+
+  <div class="content">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Have questions about our coffee, brewing tips, or want to share your experience? We’re here to listen.</p>
+      <p>Our legacy began in 1973 with a passion for quality and community. Let's keep that tradition alive together.</p>
+      <div class="highlight">Customer support: brewing smiles since 1973.</div>
+    </div>
+
+    <form id="contactForm" action="#" method="POST" novalidate>
+      <h2>Send Us a Message</h2>
+      <label for="name">Name *</label>
+      <input type="text" id="name" name="name" placeholder="Your name" required />
+
+      <label for="email">Email *</label>
+      <input type="email" id="email" name="email" placeholder="Your email" required />
+
+      <label for="message">Message *</label>
+      <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  Email us at <a href="mailto:rushitiridvan53@gmail.com">rushitiridvan53@gmail.com</a>
+</footer>
+
+<script>
+  // Simple form validation and submission simulation
+  const form = document.getElementById('contactForm');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    // Basic validation
+    const name = form.name.value.trim();
+    const email = form.email.value.trim();
+    const message = form.message.value.trim();
+
+    if (!name || !email || !message) {
+      alert('Please fill in all required fields.');
+      return;
+    }
+
+    // Simple email format check
+    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,6}$/i;
+    if (!emailPattern.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    //
