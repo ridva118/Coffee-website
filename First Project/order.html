@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Order Now - Coffee Since 1973</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+  /* Base styles */
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #fff8f0;
+    color: #4b3b2b;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 60px auto 100px;
+    padding: 0 20px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+  }
+
+  header h1 {
+    font-size: 3rem;
+    color: #6f4e37;
+    opacity: 0;
+    transform: translateY(-30px);
+    animation: fadeSlideIn 1s ease forwards;
+  }
+
+  header p.subtitle {
+    font-size: 1.3rem;
+    color: #a17c55;
+    margin-top: 10px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideIn 1s ease 0.5s forwards;
+  }
+
+  /* Floating coffee bean */
+  .bean {
+    position: absolute;
+    width: 60px;
+    height: 80px;
+    background: #3e2c1c;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: inset 10px 0 15px rgba(255, 255, 255, 0.3);
+    top: -30px;
+    right: 10%;
+    opacity: 0.7;
+    animation: floatBean 5s ease-in-out infinite;
+  }
+  .bean::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 18px;
+    width: 5px;
+    height: 35px;
+    background: #5c452a;
+    border-radius: 2px;
+    box-shadow: 2px 0 2px #8b6b3a inset;
+  }
+
+  /* Animations */
+  @keyframes floatBean {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg) scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: translateY(-20px) rotate(15deg) scale(1.1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeSlideIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-5px); }
+    40%, 80% { transform: translateX(5px); }
+  }
+
+  /* Order form styles */
+  form {
+    background: #fff2df;
+    padding: 30px 35px;
+    border-radius: 20px;
+    box-shadow: 0 12px 30px rgba(111, 78, 55, 0.25);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideIn 1s ease 1s forwards;
+    max-width: 100%;
+  }
+
+  form h2 {
+    color: #6f4e37;
+    margin-bottom: 25px;
+    font-size: 2.4rem;
+    text-align: center;
+  }
+
+  /* Input fields */
+  .field-group {
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #5b4732;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  select {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: 1rem;
+    border: 1.8px solid #c9b195;
+    border-radius: 12px;
+    transition: border-color 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  input[type="number"]:focus,
+  select:focus {
+    border-color: #6f4e37;
+    outline: none;
+  }
+
+  /* Credit card icons container */
+  .card-icons {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 25px;
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+  }
+
+  .card-icons img {
+    width: 60px;
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-icons img.active {
+    filter: none;
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  /* Submit button */
+  button[type="submit"] {
+    background: #6f4e37;
+    color: white;
+    font-weight: 700;
+    padding: 16px 0;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(111, 78, 55, 0.45);
+    transition: background 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background: #563b27;
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 8px 25px rgba(111, 78, 55, 0.45); }
+    50% { box-shadow: 0 12px 40px rgba(111, 78, 55, 0.7); }
+  }
+
+  /* Responsive */
+  @media (max-width: 480px) {
+    header h1 {
+      font-size: 2.2rem;
+    }
+    form h2 {
+      font-size: 1.8rem;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <h1>Order Your Coffee</h1>
+    <p class="subtitle">Experience the rich flavor crafted since 1973</p>
+    <div class="bean"></div>
+  </header>
+
+  <form id="orderForm" novalidate>
+    <h2>Order & Payment Details</h2>
+
+    <div class="field-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+    </div>
+
+    <div class="field-group">
+      <label for="email">Email Address *</label>
+      <input type="email" id="email" name="email" placeholder="john@example.com" required />
+    </div>
+
+    <div class="field-group">
+      <label for="coffeeType">Select Coffee Type *</label>
+      <select id="coffeeType" name="coffeeType" required>
+        <option value="" disabled selected>Select a coffee</option>
+        <option>Espresso</option>
+        <option>Americano</option>
+        <option>Latte</option>
+        <option>Cappuccino</option>
+        <option>Cold Brew</option>
+      </select>
+    </div>
+
+    <div class="field-group">
+      <label for="quantity">Quantity *</label>
+      <input type="number" id="quantity" name="quantity" min="1" max="10" value="1" required />
+    </div>
+
+    <div class="field-group">
+      <label>Payment Method *</label>
+      <div class="card-icons" id="cardIcons">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png" alt="Visa" data-card="visa" class="active" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/Mastercard_Logo.svg" alt="MasterCard" data-card="mastercard" />
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" data-card="paypal" style="width: 80px;" />
+      </div>
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="visa" selected>Visa</option>
+        <option value="mastercard">MasterCard</option>
+        <option value="paypal">PayPal</option>
+      </select>
+    </div>
+
+<div class="field-group">
+  <label for="cardNumber">Card Number *</label>
+  <input 
+    type="text" 
+    id="cardNumber" 
+    name="cardNumber" 
+    placeholder="1234 5678 9012 3456" 
+    pattern="\d{13,19}" 
+    maxlength="19" 
+    required 
+    autocomplete="cc-number" 
+    inputmode="numeric"
+  />
+</div>
+
+  <!-- You can add more card fields like expiry, CVV if needed -->
+<a href="rida.html"><button type="submit">Place Order</button>
+  </a>
+</form>
+
